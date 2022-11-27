@@ -16,6 +16,7 @@ const Producto = ({ id, nombre, marca, descripcion, cantidad, precio, imagenId }
                 <Card.Title>{nombre}</Card.Title>c
                 <Card.Subtitle className="mb-2 text-muted">Precio: {precio} ‎€</Card.Subtitle>
                 <Card.Text> {descripcion} </Card.Text>
+                <Card.Text> {cantidad} </Card.Text>
                 <Button variant="danger" className="pull-left" href={"/producto/" + id}> Ver más </Button>
                 <Button variant="primary" className="pull-right" onClick={() => carrito.addProduct({ id, nombre, marca, descripcion, cantidad, precio })}><i className="fa fa-shopping-cart" /> Add </Button>
             </Card.Body>

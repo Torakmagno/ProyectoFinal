@@ -18,28 +18,30 @@ const ProductInfo = () => {
 	if(productInfo != null) {
 	
 	return (
-		 <div className="bg-container mt-3 p-3 rounded">
-                <div className="row">
-                    <div className="col-sm-12">
-                        <h1>{productInfo.nombre}</h1>
-                        <hr/>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-8">
-                    </div>
-                    <div className="col">
-                        <span><h5>Marca: {productInfo.marca}</h5></span>
-                        <span><h2>Precio: {productInfo.precio}€</h2></span>
-                        <span><p>{productInfo.descripcion}</p></span>
-                    </div>
-                </div>
-                <div className="row pt-2">
-                    <div className="col-sm-2">
-                    </div>
+        <div className="bg-container mt-3 p-3 rounded align-content-center">
+            <img src={productInfo.imagenId}></img>
+            <div className="row">
+                <div className="col-sm-12">
+                    <h1>{productInfo.nombre}</h1>
+                    <hr />
                 </div>
             </div>
-	);
+            <div class="mt-2 pr-3 content">
+                <h4>{productInfo.marca}</h4>
+            </div>
+            <div class="mt-2 pr-3 content">
+                <p>{productInfo.descripcion}</p>
+            </div>
+            <div class="mt-2 pr-3 content">
+                <p>{productInfo.cantidad}</p>
+            </div>
+            <h4>Precio: {productInfo.precio}€</h4>
+            <div class="buttons d-flex flex-row mt-5 gap-3">
+                <button class="btn btn-danger">Add</button>
+            </div>
+        </div>
+
+    );
 	} else {
 		return <h1>Cargando...</h1>
 	}

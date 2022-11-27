@@ -2,9 +2,11 @@ import Producto from '../Components/Producto';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 const ProductListPage = () => {
 
     const [liquidos, setLiquidos] = useState(null);
+    const [search, setSearch] = useState("");
 
   useEffect(() => {
 
