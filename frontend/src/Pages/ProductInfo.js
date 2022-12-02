@@ -19,7 +19,7 @@ const ProductInfo = () => {
 	
 	return (
         <div className="bg-container mt-3 p-3 rounded align-content-center">
-            <img src={productInfo.imagenId}></img>
+            <img style={{ height: '400px' }} src={productInfo.imagenId}></img>
             <div className="row">
                 <div className="col-sm-12">
                     <h1>{productInfo.nombre}</h1>

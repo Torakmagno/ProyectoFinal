@@ -19,7 +19,7 @@ export const Profile = () => {
                         {user.name}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        {/*<Dropdown.Item href="#/action-1">Action</Dropdown.Item>*/}
                         <Dropdown.Item>
                             <LogoutButton />
                         </Dropdown.Item>

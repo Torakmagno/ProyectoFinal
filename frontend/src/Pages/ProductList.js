@@ -29,7 +29,7 @@ if(liquidos != null) {
 	
 	<div className="container">
                
-            <div className="bg-container mt-3 p-3 rounded">
+            <div className="bg-container mt-3 p-3 rounded ">
                 <div className="row">
                     <div className="col-sm-8">
                         <h2 className="float-left">Catálogo de Productos</h2>
