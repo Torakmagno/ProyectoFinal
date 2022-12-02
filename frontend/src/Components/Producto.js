@@ -18,8 +18,8 @@ const Producto = ({ id, nombre, marca, descripcion, cantidad, precio, imagenId }
                 <Card.Subtitle className="mb-2 text-muted text-center">Precio: {precio} ‎€</Card.Subtitle>
                 <Card.Text class="text-center h5" >{descripcion}</Card.Text>
                 <Card.Text class="text-center fst-italic"> Bote de :  {cantidad} </Card.Text>
-                <Button variant="danger" className="pull-left align-bottom" href={"/producto/" + id}> Ver más </Button>
-                <Button variant="primary" className="pull-right align-bottom" onClick={() => carrito.addProduct({ id, nombre, marca, descripcion, cantidad, precio })}><i className="fa fa-shopping-cart" /> Add </Button>
+                <Button variant="danger" className="pull-left" href={"/producto/" + id}> Ver más </Button>
+                <Button variant="primary" className="pull-right" onClick={() => carrito.addProduct({ id, nombre, marca, descripcion, cantidad, precio })}><i className="fa fa-shopping-cart" /> Add </Button>
             </Card.Body>
         </Card>
         )
