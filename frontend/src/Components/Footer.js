@@ -11,27 +11,17 @@ const FooterV = () => {
         <ul class="nav col-md-4 ">
           <li class="nav-item">
             <a href="#" class="nav-link px-2 text-muted">
-              Home
+              Inicio
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link px-2 text-muted">
-              Features
+              Productos
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">
-              Pricing
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">
+            <a href="/faqs" class="nav-link px-2 text-muted">
               FAQs
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">
-              About
             </a>
           </li>
         </ul>

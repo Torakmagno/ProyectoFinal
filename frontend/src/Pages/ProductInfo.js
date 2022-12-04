@@ -21,21 +21,21 @@ const ProductInfo = () => {
         <div className="bg-container mt-3 p-3 rounded align-content-center">
             <img style={{ height: '400px' }} src={productInfo.imagenId}></img>
             <div className="row">
-                <div className="col-sm-12">
+                <div className="col-sm-12 h3 text-center">
                     <h1>{productInfo.nombre}</h1>
                     <hr />
                 </div>
             </div>
-            <div class="mt-2 pr-3 content">
+            <div class="mt-2 pr-3 content h4 text-center">
                 <h4>{productInfo.marca}</h4>
             </div>
-            <div class="mt-2 pr-3 content">
+            <div class="mt-2 pr-3 content h3 text-center">
                 <p>{productInfo.descripcion}</p>
             </div>
-            <div class="mt-2 pr-3 content">
-                <p>{productInfo.cantidad}</p>
+            <div class="mt-2 pr-3 content text-center fst-italic">
+                <p>Bote de :  {productInfo.cantidad}</p>
             </div>
-            <h4>Precio: {productInfo.precio}€</h4>
+            <h4 class= "text-muted text-center">Precio: {productInfo.precio}€</h4>
             <div class="buttons d-flex flex-row mt-5 gap-3">
                 <button class="btn btn-danger">Add</button>
             </div>
