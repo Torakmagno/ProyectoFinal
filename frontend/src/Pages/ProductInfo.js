@@ -1,50 +1,62 @@
-import axios from "axios";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useCart } from 'react-use-cart';
+import { BsCartPlus } from 'react-icons/bs';
 import { useParams } from "react-router-dom";
 
-const ProductInfo = () => {
-	
-	const { id } = useParams();
-	const [productInfo, setProductInfo] = useState(null);
-	
-	
-	useState(() => {
-		axios.get("http://localhost:8080/api/liquido/" + id)
-			.then(response => {
-				setProductInfo(response.data);
-			});
-	}, []);
-	
-	if(productInfo != null) {
-	
-	return (
-        <div className="bg-container mt-3 p-3 rounded align-content-center">
-            <img style={{ height: '400px' }} src={productInfo.imagenId}></img>
-            <div className="row">
-                <div className="col-sm-12 h3 text-center">
-                    <h1>{productInfo.nombre}</h1>
-                    <hr />
-                </div>
-            </div>
-            <div class="mt-2 pr-3 content h4 text-center">
-                <h4>{productInfo.marca}</h4>
-            </div>
-            <div class="mt-2 pr-3 content h3 text-center">
-                <p>{productInfo.descripcion}</p>
-            </div>
-            <div class="mt-2 pr-3 content text-center fst-italic">
-                <p>Bote de :  {productInfo.cantidad}</p>
-            </div>
-            <h4 class= "text-muted text-center">Precio: {productInfo.precio}€</h4>
-            <div class="buttons d-flex flex-row mt-5 gap-3">
-                <button class="btn btn-danger">Add</button>
-            </div>
-        </div>
+const ProductInfo = (props) => {
+    const [productData, setProductData] = useState([]);
+    const { addItem } = useCart();
 
+    const params = useParams();
+
+    useEffect(() => {
+        getResponse();
+    }, []);
+
+    const getResponse = async () => {
+        const res = await fetch('http://localhost:8080/api/liquido/' + params.productId)
+            .then((res) => res.json());
+        setProductData(res);
+    }
+
+    let image = productData.imagenId;
+    let price = productData.precio;
+    let title = productData.nombre;
+    let description = productData.descripcion;
+    let brand = productData.marca;
+    let id = productData.id;
+
+    let producto = { image, price, title, id, description, brand };
+
+    return (
+        <Container className="py-5">
+            <Row className="justify-content-center mt-5">
+                <Col xs={10} md={7} lg={5} className="p-0">
+                    <img src={image} alt="product" className="img-fluid" />
+                </Col>
+                <Col xs={10} md={7} lg={7} className={`text-black product-details`}>
+                    <h1>{title}</h1>
+                    <br />
+                    <b className={'text-light-primary h4 mt-3 d-block'}>
+                        {price}€
+                    </b>
+                    <br />
+                    <p className="h5" style={{ opacity: '0.8', fontWeight: '400' }}>
+                        {description}
+                    </p>
+                    <Button
+                        onClick={() => addItem(producto)}
+                        className={'mt-2 text-light bg-light-primary'}
+                        style={{ borderRadius: '0', border: 0 }}
+                    >
+                        <BsCartPlus size="1.8rem" />
+                        Add to cart
+                    </Button>
+                </Col>
+            </Row>
+        </Container>
     );
-	} else {
-		return <h1>Cargando...</h1>
-	}
-}
+};
 
 export default ProductInfo;

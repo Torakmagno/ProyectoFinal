@@ -5,15 +5,19 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CartProvider } from 'react-use-cart';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
       domain="dev-s1ks5jbxwy2p53s2.us.auth0.com"
       clientId="6bEPIUVR0df8RFPS60hVrc4kLRJJG4FG"
-      redirectUri={window.location.origin}
-    >
-      <App />
+      redirectUri={window.location.origin}>
+      <CartProvider>
+        <App />
+      </CartProvider>
     </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -4,38 +4,34 @@ import ProductInfo from './Pages/ProductInfo';
 import PPrincipal from './Pages/PPrincipal';
 import Cart from './Pages/Cart';
 import Nav from './Components/Nav';
+import Faqs from './Pages/Faqs';
 import FooterV from './Components/Footer';
 import 'font-awesome/css/font-awesome.min.css';
-import { UserProvider, defaultUser } from "./Context/CarritoContext";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Contacto from './Components/Contacto';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
-const axios = require('axios');
+
 
 // https://javascript.plainenglish.io/authentication-in-react-caf2abfa0494
-
 const App = ({ children }) => {
-	
-	const [carrito, setCarrito] = useState([]);
-	
-	const addProduct = (id) => setCarrito([...carrito, id]); 
 
-  return(
+  return (
     <BrowserRouter>
-     <UserProvider value={{carrito, addProduct}}>
-     <Nav></Nav>
-        <Routes>
-          <Route path="/" element={<PPrincipal />} />
-          <Route path="/products" element={<ProductListPage />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/producto/:id" element={<ProductInfo />} />
-          <Route path="/carrito" element={<Cart />} />
-        </Routes>
-        <FooterV></FooterV>
-      </UserProvider>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<PPrincipal />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/products" element={<ProductListPage />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/producto/:productId" element={<ProductInfo />} />
+        <Route path="/carrito" element={<Cart />} />
+      </Routes>
+      <PayPalScriptProvider options={{ "client-id": "AQg4io9_E5zptHdyT_v1g0gwQafJUJVkRPbXRhSOHMAFp0uhSb03GzE0IJR3gV4vVwuqYubNfOzDSXh0" }} />
+      <FooterV />
     </BrowserRouter>
   )
-  
+
 }
 
 export default App;
